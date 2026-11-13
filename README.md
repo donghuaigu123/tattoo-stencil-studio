@@ -33,7 +33,7 @@
 
 ### Android 版
 
-从 [Releases](../../releases/latest) 下载 `秒变线稿-v1.0.0.apk`，在手机上允许「安装未知来源应用」后安装。
+从 [Releases](../../releases/latest) 下载 `MiaoBianXianGao-v1.0.0.apk`（GitHub 会移除附件名中的中文，故附件使用拼音名），在手机上允许「安装未知来源应用」后安装，桌面显示「秒变线稿」。
 
 - 最低 Android 7.0（API 24），目标 API 34。
 - 点击「选择图片」调用系统文件选择器，支持多选。
@@ -95,7 +95,7 @@ android/
   res/mipmap-anydpi-v26/          Android 8+ 自适应图标
   res/values/                     应用名、暗色主题与图标底色
   build.sh                      命令行构建脚本
-docs/                          预览图与测试素材
+docs/                          图标、界面预览图与测试素材
 ```
 
 ## 第三方代码
