@@ -140,8 +140,18 @@ public class MainActivity extends Activity {
         if (safe.length() == 0) safe = "image";
         if (!safe.contains(".")) safe = safe + ".jpg";
 
-        File out = new File(getCacheDir(),
-                "pick_" + System.currentTimeMillis() + "_" + index + "_" + safe);
+        // 保持原文件名，导出时才能得到 xxx_stencil.jpg；重名时追加序号
+        File dir = new File(getCacheDir(), "picks");
+        if (!dir.exists()) dir.mkdirs();
+        File out = new File(dir, safe);
+        int seq = 2;
+        while (out.exists() && seq < 100) {
+            int dot = safe.lastIndexOf('.');
+            String base = dot > 0 ? safe.substring(0, dot) : safe;
+            String ext = dot > 0 ? safe.substring(dot) : "";
+            out = new File(dir, base + "_" + (seq++) + ext);
+        }
+
         InputStream in = null;
         OutputStream os = null;
         try {
