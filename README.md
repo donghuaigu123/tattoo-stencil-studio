@@ -4,6 +4,8 @@
 
 纯前端、完全离线、图片不上传；既是一个可直接双击打开的单文件网页，也有对应的 Android APK。
 
+> **在线体验** · [GitHub Pages 网页版](https://donghuaigu123.github.io/tattoo-stencil-studio/)　|　**源码** · [github.com/donghuaigu123/tattoo-stencil-studio](https://github.com/donghuaigu123/tattoo-stencil-studio)　|　**安卓** · [下载 APK](../../releases/latest)
+
 ![桌面端预览](docs/preview-desktop.png)
 
 <p align="center"><img src="docs/preview-mobile.png" alt="Android / 手机端预览" width="320"></p>
@@ -72,7 +74,7 @@ Android 端是一个极简 WebView 外壳：
 需要 JDK 17+、Android SDK（build-tools 34 与 platform android-34）、`zip`、`keytool`。
 
 ```bash
-git clone <你的仓库地址>
+git clone https://github.com/donghuaigu123/tattoo-stencil-studio.git
 cd tattoo-stencil-studio/android
 ANDROID_SDK=/path/to/Android/Sdk ./build.sh
 # 产出：../StencilStudio.apk
