@@ -1,0 +1,12 @@
+# 构建产物：APK 通过 GitHub Releases 分发，不进仓库
+*.apk
+*.idsig
+android/build/
+android/stencil.keystore
+android/assets/index.html
+
+# 编辑器 / 系统
+.DS_Store
+Thumbs.db
+.idea/
+*.swp
