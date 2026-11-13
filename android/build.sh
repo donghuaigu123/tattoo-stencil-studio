@@ -34,7 +34,7 @@ echo "[1/7] 编译资源"
 echo "[2/7] 链接 Manifest，生成 APK 骨架"
 "$AAPT2" link -o "$WORK/base.apk" -I "$ANDROID_JAR" \
   --manifest "$ANDROID/AndroidManifest.xml" \
-  -R "$WORK/res.zip" --java "$WORK/gen" \
+  -R "$WORK/res.zip" --auto-add-overlay --java "$WORK/gen" \
   --min-sdk-version 24 --target-sdk-version 34 \
   --version-code 1 --version-name 1.0.0
 
@@ -57,7 +57,7 @@ if [ ! -f "$ANDROID/stencil.keystore" ]; then
   keytool -genkeypair -keystore "$ANDROID/stencil.keystore" -alias stencil \
     -keyalg RSA -keysize 2048 -validity 10000 \
     -storepass "$KEYPASS" -keypass "$KEYPASS" \
-    -dname "CN=Stencil Studio, OU=OpenSource, O=Stencil Studio, L=NA, S=NA, C=CN" \
+    -dname "CN=秒变线稿, OU=OpenSource, O=秒变线稿, L=NA, S=NA, C=CN" \
     >/dev/null 2>&1
 fi
 
@@ -65,7 +65,7 @@ echo "[7/7] 签名并校验"
 "$APKSIGNER" sign --ks "$ANDROID/stencil.keystore" \
   --ks-pass "pass:$KEYPASS" --key-pass "pass:$KEYPASS" \
   --v1-signing-enabled true --v2-signing-enabled true \
-  --out "$REPO/StencilStudio.apk" "$WORK/aligned.apk"
-"$APKSIGNER" verify --verbose "$REPO/StencilStudio.apk"
+  --out "$REPO/秒变线稿.apk" "$WORK/aligned.apk"
+"$APKSIGNER" verify --verbose "$REPO/秒变线稿.apk"
 
-echo "完成：$REPO/StencilStudio.apk"
+echo "完成：$REPO/秒变线稿.apk"

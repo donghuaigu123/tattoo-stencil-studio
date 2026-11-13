@@ -1,8 +1,10 @@
-# Stencil Studio · 纹身线稿生成器
+# 秒变线稿 · 照片转纹身线描图
+
+<p align="center"><img src="docs/icon.png" alt="秒变线稿 图标" width="132"></p>
 
 把照片、插画、扫描手稿一键转换成适合**转印纸 / 热敏打印机**的纯黑白线描图，输出统一为 JPG。
 
-纯前端、完全离线、图片不上传；既是一个可直接双击打开的单文件网页，也有对应的 Android APK。
+纯前端、完全离线、图片不上传；既是一个可直接双击打开的单文件网页，也有对应的 Android APK（安装后桌面名称为「秒变线稿」）。
 
 > **在线体验** · [GitHub Pages 网页版](https://donghuaigu123.github.io/tattoo-stencil-studio/)　|　**源码** · [github.com/donghuaigu123/tattoo-stencil-studio](https://github.com/donghuaigu123/tattoo-stencil-studio)　|　**安卓** · [下载 APK](../../releases/latest)
 
@@ -31,7 +33,7 @@
 
 ### Android 版
 
-从 [Releases](../../releases/latest) 下载 `StencilStudio.apk`，在手机上允许「安装未知来源应用」后安装。
+从 [Releases](../../releases/latest) 下载 `秒变线稿-v1.0.0.apk`，在手机上允许「安装未知来源应用」后安装。
 
 - 最低 Android 7.0（API 24），目标 API 34。
 - 点击「选择图片」调用系统文件选择器，支持多选。
@@ -77,7 +79,7 @@ Android 端是一个极简 WebView 外壳：
 git clone https://github.com/donghuaigu123/tattoo-stencil-studio.git
 cd tattoo-stencil-studio/android
 ANDROID_SDK=/path/to/Android/Sdk ./build.sh
-# 产出：../StencilStudio.apk
+# 产出：../秒变线稿.apk
 ```
 
 构建脚本只用 `aapt2` / `javac` / `d8` / `zipalign` / `apksigner`，不需要 Gradle 或 Android Studio，也不下载任何构建依赖。密钥为本地生成的自签名 debug 密钥，**请勿用于正式发布**。
@@ -89,7 +91,9 @@ index.html                     Web 版（单文件，含内嵌解码库）
 android/
   AndroidManifest.xml
   src/.../MainActivity.java     WebView 外壳 + 文件选择 + 保存
-  res/drawable/ic_launcher.png
+  res/mipmap-*/ic_launcher*.png  各密度启动器图标（暗色画笔 + 弯曲线条）
+  res/mipmap-anydpi-v26/          Android 8+ 自适应图标
+  res/values/                     应用名、暗色主题与图标底色
   build.sh                      命令行构建脚本
 docs/                          预览图与测试素材
 ```
